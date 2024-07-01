@@ -1,0 +1,66 @@
+[
+    {
+        "unit": "G01",
+        "occupied": true,
+        "first_name": "Josh",
+        "last_name": "Flanagan",
+        "resid_type": "Owner",
+        "num_resid": 4
+    },
+    {
+        "unit": "G02",
+        "occupied": true,
+        "first_name": "Edouard",
+        "last_name": "Baxter",
+        "resid_type": "Owner",
+        "num_resid": 3  
+    },
+    {
+        "unit": "G03",
+        "occupied": false,
+        "first_name": null,
+        "last_name": null,
+        "resid_type": null,
+        "num_resid": null
+    },
+    {
+        "unit": "G04",
+        "occupied": true,
+        "first_name": "Uri",
+        "last_name": "Geller",
+        "resid_type": "Owner",
+        "num_resid": 1
+    },
+    {
+        "unit":"101",
+        "occupied": true,
+        "first_name": "Vittoria",
+        "last_name": "Vettra",
+        "resid_type": "Owner",
+        "num_resid": 1
+    },
+    {
+        "unit":"102",
+        "occupied": false,
+        "first_name": null,
+        "last_name": null,
+        "resid_type": null,
+        "num_resid": null
+    },
+    {
+        "unit": "103",
+        "occupied": true,
+        "first_name": "Emily",
+        "last_name": "Dickinson",
+        "resid_type": "Tenant",
+        "num_resid": 1
+    },
+    {
+        "unit": "104",
+        "occupied": false,
+        "first_name": null,
+        "last_name": null,
+        "resid_type": null,
+        "num_resid": null
+    }
+]
