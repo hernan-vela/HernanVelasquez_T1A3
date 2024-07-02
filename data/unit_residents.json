@@ -28,14 +28,14 @@
         "occupied": true,
         "first_name": "Uri",
         "last_name": "Geller",
-        "resid_type": "Owner",
+        "resid_type": "Tenant",
         "num_resid": 1
     },
     {
         "unit":"101",
         "occupied": true,
         "first_name": "Vittoria",
-        "last_name": "Vettra",
+        "last_name": "Vetra",
         "resid_type": "Owner",
         "num_resid": 1
     },
