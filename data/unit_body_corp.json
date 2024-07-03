@@ -1,34 +1,34 @@
 [
     {
-        "unit": "G01",
-        "bc_balance": 1000
+        "Unit": "G01",
+        "Body Corporate balance": 1000
     },
     {
-        "unit": "G02",
-        "bc_balance": 1000
+        "Unit": "G02",
+        "Body Corporate balance": 1000
     },
     {
-        "unit": "G03",
-        "bc_balance": 0
+        "Unit": "G03",
+        "Body Corporate balance": 0
     },
     {
-        "unit": "G04",
-        "bc_balance": 1000
+        "Unit": "G04",
+        "Body Corporate balance": 1000
     },
     {
-        "unit": "101",
-        "bc_balance": 1000
+        "Unit": "101",
+        "Body Corporate balance": 1000
     },
     {
-        "unit": "102",
-        "bc_balance": 0
+        "Unit": "102",
+        "Body Corporate balance": 0
     },
     {
-        "unit": "103",
-        "bc_balance": 1000
+        "Unit": "103",
+        "Body Corporate balance": 1000
     },
     {
-        "unit": "104",
-        "bc_balance": 0
+        "Unit": "104",
+        "Body Corporate balance": 0
     }
 ]
