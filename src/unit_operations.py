@@ -1,7 +1,7 @@
 def display_residents(residents):
     """ 
     Fetch information of building residents from a JSON file.
-    (parameters) residents: (CHECK, CHECK).
+    (parameters) residents: load the information stored in a JSON file with all owner/tenant of the building
     Return: List of units in the builiding with information of unit number, full name of resident, type of resident and 
     number of people in the household.
     """
@@ -32,32 +32,34 @@ def display_unit_info(unit_num):
 def add_new_resident(residents):
     """
     Allows user to add new resident information and stores info in a JSON file.
-    (parameters) residents: (CHECK, CHECK)
+    (parameters) residents: list of residents registered as owner/tenat of every unit, from JSON file.
     Return: message of succesful addition.
     """
     try:
         unit = input("Unit of new resident: ")
+
+        while unit not in building_units: # LINK THIS LINE TO 'building_units.json'
+            print("Unit non-existent. Try again!")
+
         first_name = input("First name of owner/lessee: ")
-
-        if first_name != None:
-            occupied = True
-        else:
-            occupied = False
-
         last_name = input("Last name of owner/lessee: ")
-        resid_type = input("Is this person the owner?(Yes/No): ")
-        
-        resid_type = resid_type.lower()
-        if resid_type == "yes":
-            resid_type = "Owner"
-        elif resid_type == "no":
-            resid_type == "Tenant"
 
+        while True:
+            resid_type = input("Is this person the owner?(Yes/No): ").strip().lower()
+
+            if resid_type in ["yes", "y"]:
+                resid_type = "Owner"
+                break
+            elif resid_type in ["no", "n"]:
+                resid_type = "Tenant"
+                break
+            else:
+                print("Invalid input. Please enter 'Yes' or 'No'.")
         
         num_resid = int(input("Number of people in the household: "))        
         
-        residents = {"unit": unit, "first_name": first_name, "last_name": last_name, "resid_type": resid_type, "num_resid": num_resid}
-        residents.append()
+        resident = {"unit": unit, "first_name": first_name, "last_name": last_name, "resid_type": resid_type, "num_resid": num_resid}
+        residents.append(resident)
 
     except ValueError:
         print("Error: Invalid input. Number of people must be an integer.")

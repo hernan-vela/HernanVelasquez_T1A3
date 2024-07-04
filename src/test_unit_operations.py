@@ -12,6 +12,25 @@
 #     except Exception as e:
 #         print(f"An expected error occurred: {e}")
 
+def unit_values():
+    units = []
+    
+    # Ground floor units
+    for i in range(1, 5):
+        units.append(f"G0{i}")
+    
+    # First to fifth floor units
+    for floor in range(1, 6):
+        for unit in range(1, 5):
+            units.append(f"{floor}0{unit}")
+    
+    return units
+
+unit_values = generate_unit_values()
+print(unit_values)
+
+
+
 def add_new_resident(residents):
     """
     Allows user to add new resident information and stores information in a JSON file.

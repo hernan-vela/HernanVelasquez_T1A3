@@ -14,6 +14,14 @@
         "num_resid": 3  
     },
     {
+        "unit": "G03",
+        "occupied": false,
+        "first_name": null,
+        "last_name": null,
+        "resid_type": null,
+        "num_resid": null
+    },
+    {
         "unit": "G04",
         "first_name": "Uri",
         "last_name": "Geller",
@@ -28,10 +36,25 @@
         "num_resid": 1
     },
     {
+        "unit":"102",
+        "first_name": null,
+        "last_name": null,
+        "resid_type": null,
+        "num_resid": null
+    },
+    {
         "unit": "103",
         "first_name": "Emily",
         "last_name": "Dickinson",
         "resid_type": "Tenant",
         "num_resid": 1
+    },
+    {
+        "unit": "104",
+        "occupied": false,
+        "first_name": null,
+        "last_name": null,
+        "resid_type": null,
+        "num_resid": null
     }
 ]
