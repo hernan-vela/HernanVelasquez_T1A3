@@ -1,7 +1,6 @@
 [
     {
         "unit": "G01",
-        "occupied": true,
         "first_name": "Josh",
         "last_name": "Flanagan",
         "resid_type": "Owner",
@@ -9,7 +8,6 @@
     },
     {
         "unit": "G02",
-        "occupied": true,
         "first_name": "Edouard",
         "last_name": "Baxter",
         "resid_type": "Owner",
@@ -25,7 +23,6 @@
     },
     {
         "unit": "G04",
-        "occupied": true,
         "first_name": "Uri",
         "last_name": "Geller",
         "resid_type": "Tenant",
@@ -33,7 +30,6 @@
     },
     {
         "unit":"101",
-        "occupied": true,
         "first_name": "Vittoria",
         "last_name": "Vetra",
         "resid_type": "Owner",
@@ -41,7 +37,6 @@
     },
     {
         "unit":"102",
-        "occupied": false,
         "first_name": null,
         "last_name": null,
         "resid_type": null,
@@ -49,7 +44,6 @@
     },
     {
         "unit": "103",
-        "occupied": true,
         "first_name": "Emily",
         "last_name": "Dickinson",
         "resid_type": "Tenant",

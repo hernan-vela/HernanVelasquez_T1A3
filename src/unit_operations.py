@@ -1,8 +1,9 @@
 def display_residents(residents):
     """ 
-    Fetch information of owner/tenant from a JSON file.
+    Fetch information of building residents from a JSON file.
     (parameters) residents: (CHECK, CHECK).
-    Return: None
+    Return: List of units in the builiding with information of unit number, full name of resident, type of resident and 
+    number of people in the household.
     """
     try:
         for person in residents:
@@ -11,6 +12,22 @@ def display_residents(residents):
         print(f"Error displaying information of residents: Missing key {e}")
     except Exception as e:
         print(f"An expected error occurred: {e}")
+
+def display_unit_info(unit_num):
+    """
+    Upon user request, fetch information of a specific unit number, from a JSON file.
+    (parameters) unit_num: input from user in the range of apartments in the building.
+    Return: print unit, full name of main resident, type of resident and number of people in the household.
+    """
+# unit_num = input("Enter the unit number: ") (ARGUMENT REQUESTED FROM USER IN main.py)
+    try:
+        for unit in residents:
+            if unit["unit"] == unit_num:
+                print(unit)
+    except KeyError as e:
+        print(f"Unit number does not exist or unit is vacant. Missing key {e}")
+    except Exception as e:
+        print(f"An unexpecte error occurred: {e}")
 
 def add_new_resident(residents):
     """

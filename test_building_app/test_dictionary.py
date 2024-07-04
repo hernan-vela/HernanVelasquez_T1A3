@@ -8,7 +8,7 @@ unit_residents = [
         "num_resid": 5
     },
     {
-        "unit": "102",
+        "unit": "G02",
         "occupied": True,
         "first_name": "Edouard",
         "last_name": "Baxter",
@@ -16,7 +16,7 @@ unit_residents = [
         "num_resid": 3  
     },
     {
-        "unit": "G03",
+        "unit": "101",
         "occupied": True,
         "first_name": "Uri",
         "last_name": "Chan",
@@ -24,7 +24,7 @@ unit_residents = [
         "num_resid": 10
     },
     {
-        "unit": "G04",
+        "unit": "102",
         "occupied": True,
         "first_name": "Uri",
         "last_name": "Geller",
@@ -33,19 +33,14 @@ unit_residents = [
     }
 ]
 
+unit_num = input("Enter the unit number: ")
+
+for unit in unit_residents:
+    if unit["unit"] == unit_num:
+        print(unit)
 
 
-def sum_residents_building(residents):
-    """
-    Sum the total of number of residents currently living in the building.
-    (parameter) residents: (CHECK, CHECK)
-    Return: Total number of people living in the building.
-    """
-    try:
-        count_residents = 0
 
-        for num_resid in count_residents:
-            count_residents += num_resid["num_resid"]
-            print(f"Total number of people living in the building: {count_residents_residents}")
 
-    total_residents()
+
+
