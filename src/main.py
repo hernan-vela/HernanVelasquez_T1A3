@@ -1,5 +1,8 @@
 from file_operations import load_unit_residents, save_residents
 from unit_operations import display_residents, add_new_resident
+import os
+
+os.system("clear") # Joel: clears the terminal.
 
 residents_file = '../data/unit_residents.json'
 body_corp_file = '../data/unit_body_corp.json'
