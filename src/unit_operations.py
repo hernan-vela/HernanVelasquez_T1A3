@@ -102,6 +102,30 @@ def add_new_resident(unit_residents):
     print(f"New main resident successfully added to unit {unit}.")
 
 
+def delete_unit_resident(unit_residents, unit_deletion):
+    """ 
+    Eliminate information of a main resident associated to a specific unit number.
+    (parameters) residents: load the information stored in a JSON file with all owners/tenants of the building.
+                unit_num: locate the entry of the unit number information to be erased.
+    Return: Message of entry successfully deleted.
+    """
+    
+    while unit_deletion.isalpha() or unit_deletion.lower() == 'q':
+        if unit_deletion.lower() == 'q':
+            return
+        print(f"Invalid input. Please enter a valid unit number or press 'q' to return to the main menu.")
+        unit_deletion = input("Enter the number of unit you want to vacate: ")
+
+    while True:
+        for resident in unit_residents:
+            if resident["unit"] == unit_deletion:
+                unit_residents.remove(resident)
+                print(f"Entry for unit {unit_deletion} has been removed.")
+                return
+        print(f"Unit is vacant or is an invalid unit number.")
+        return
+
+
 def sum_residents_floor(residents, floor):
     """
     Takes the number of residents per household in the same floor and add them up.
