@@ -8,23 +8,19 @@ def display_residents(unit_residents):
         print(
             f"Unit {person['unit']}: {person['first_name']} {person['last_name']}, Status: {person['resid_type']}, Registered residents: {person['num_resid']}")
 
+
 def display_unit_info(unit_residents, unit_num):
     """
     Upon user request, fetch information of a specific unit number, from a JSON file.
     (parameters) residents: residents info from JSON file.
         unit_num: input from user in the range of apartments in the building.
-    Return: print unit, full name of main resident, type of resident and number of people in the household.
+    Return: Unit number, full name of main resident, type of resident and number of people in the household.
     """
-    try:
-
-        # unit_num = input("Enter the unit number: ") (ARGUMENT REQUESTED FROM USER IN main.py)
-        for unit in unit_residents:
-            if unit["unit"] == unit_num:
-                print(f"\nUnit: {unit['unit']}\nResident: {unit['first_name']} {unit['last_name']}\nStatus: {unit['resid_type']}\nRegistered residents : {unit['num_resid']}")
-    # except KeyError as e:
-    #     print(f"Unit number does not exist or unit is vacant. Missing key {e}")
-    except Exception as e:
-        print(f"An unexpected error occurred: {e}")
+# unit_num = input("Enter the unit number: ") (ARGUMENT REQUESTED FROM USER IN main.py)
+    for unit in unit_residents:
+        if unit["unit"] == unit_num:
+            print(
+                f"\nUnit: {unit['unit']}\nResident: {unit['first_name']} {unit['last_name']}\nStatus: {unit['resid_type']}\nRegistered residents : {unit['num_resid']}\n")
 
 
 def add_new_resident(unit_residents):
@@ -33,13 +29,25 @@ def add_new_resident(unit_residents):
     (parameters) residents: list of residents registered as owner/tenat of every unit, from JSON file.
     Return: message of succesful addition.
     """
-
-    unit = input("Unit of new resident: ")
-    while unit not in building_units:  # LINK THIS LINE TO 'building_units.json'
-        print("Unit non-existent. Try again or press 'q' to return to the main menu.")
+    while True:
         unit = input("Unit of new resident: ")
-        if (unit == 'q'):
+
+        if unit == 'q':
             return
+
+        if any(non_vacant_unit["unit"] == unit for non_vacant_unit in unit_residents):
+            print(
+                "This unit is not vacant. Not possible to store information. Returning to main menu.")
+            return
+
+        if unit not in building_units:
+            print("Unit non-existent. Try again or press 'q' to return to the main menu.")
+            if unit == 'q':
+                return
+            else:
+                continue
+        else:
+            break
 
     first_name = input("First name of owner/lessee: ")
     while not first_name.isalpha():
@@ -70,11 +78,11 @@ def add_new_resident(unit_residents):
 
     while True:
         num_resid = input("Number of people in the household: ")
-        
+
         if num_resid.lower() == 'q':
             print("Returning to the main menu.")
             return
-        
+
         try:
             num_resid = int(num_resid)
             if num_resid < 0:
@@ -84,14 +92,15 @@ def add_new_resident(unit_residents):
             else:
                 break
         except ValueError:
-            print("Value error. Please enter a valid number or press 'q' to return to the main menu.")
-
+            print(
+                "Value error. Please enter a valid number or press 'q' to return to the main menu.")
 
     resident = {"unit": unit, "first_name": first_name,
                 "last_name": last_name, "resid_type": resid_type, "num_resid": num_resid}
 
     unit_residents.append(resident)
     print(f"New main resident successfully added to unit {unit}.")
+
 
 def sum_residents_floor(residents, floor):
     """
