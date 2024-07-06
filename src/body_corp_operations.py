@@ -39,7 +39,7 @@ def bodyCorp_unit_balance(unit_body_corp, building_units):
             print(f"No balance information found for unit {unit}.")
 
 
-def global_building_balance(unit_body_corp):
+def global_balance(unit_body_corp):
     """
     User fetches information of current total balance of Body Corporate
     (parameters) unit_body_corp: List of entries with accumulation of payments per unit in a JSON file.
