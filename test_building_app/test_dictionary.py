@@ -8,21 +8,21 @@ unit_residents = [
         "first_name": "Josh",
         "last_name": "Flanagan",
         "resid_type": "Owner",
-        "num_resid": 5
+        "num_resid": 7
     },
     {
         "unit": "G02",
         "first_name": "Edouard",
         "last_name": "Baxter",
         "resid_type": "Owner",
-        "num_resid": 3
+        "num_resid": 200
     },
     {
         "unit": "101",
         "first_name": "Uri",
         "last_name": "Chan",
         "resid_type": "Tenant",
-        "num_resid": 7
+        "num_resid": 100
     },
     {
         "unit": "102",
@@ -106,44 +106,34 @@ building_units = ["G01", "G02", "G03", "G04", "101", "102", "103", "104", "201",
 
 floors = ["G", "1", "2", "3", "4"]
 
-# unit = input("Enter the unit number to know its BC balance: ")
 
-def display_unit_info(unit_residents):
+def bodyCorp_unit_balance(unit_body_corp, building_units):
     """
-    Upon user request, fetch information of a specific unit number, from a JSON file.
-    (parameters) residents: residents info from JSON file.
-        unit_num: input from user in the range of apartments in the building.
-    Return: Unit number, full name of main resident, type of resident and number of people in the household.
+    User fetches information of the current balance of a unit by entering the unit number.
+    (parameters) unit_body_corp: List of entries with accumulation of payments per unit in a JSON file.
+    Return: None
     """
-    unit_num = input("Enter the unit number: ").upper()
-    for unit in unit_residents:
-        if unit["unit"] == unit_num:
-            print(
-                f"\nUnit: {unit['unit']}\nResident: {unit['first_name']} {unit['last_name']}\nStatus: {unit['resid_type']}\nRegistered residents : {unit['num_resid']}\n")
-            
-display_unit_info(unit_residents)
+    
+    while True:
+        unit = input("Enter unit to see the current Body Corporate balance or 'q' to quit: ").upper()
 
-for entry in unit_body_corp:
-        if entry["Unit"] == unit:
-            return entry["Body Corporate balance"]
-    return None
+        if unit == 'Q':
+            break
 
+        if unit not in building_units:
+            print("Invalid entry. Please enter a valid unit number or press 'q' to quit.")
+            continue
 
-while True:
-    unit = input(
-        "Enter unit to see the current Body Corporate balance or 'q' to quit: ").upper()
+        balance = None
+        for entry in unit_body_corp:
+            if entry["Unit"] == unit:
+                balance = entry["Body Corporate balance"]
+                break
+        
+        if balance is not None:
+            current_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            print(f"\nDate: {current_datetime}\nUnit: {unit}\nBC balance: {balance}\n")
+        else:
+            print(f"No balance information found for unit {unit}.")
 
-    if unit == 'Q':
-        break
-
-    if unit not in building_units:
-        print("Invalid entry. Please enter a valid unit number or press 'q' to quit.")
-        continue
-
-    balance = bodyCorp_unit_balance(unit_body_corp, unit)
-    if balance is not None:
-        current_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        print(
-            f"\nDate: {current_datetime}\nUnit: {unit}\nBC balance: {balance}\n")
-    else:
-        print(f"No balance information found for unit {unit}.")
+bodyCorp_unit_balance(unit_body_corp, building_units)
