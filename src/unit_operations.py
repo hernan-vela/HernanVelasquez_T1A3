@@ -109,7 +109,7 @@ def delete_unit_resident(unit_residents, unit_deletion):
                 unit_num: locate the entry of the unit number information to be erased.
     Return: Message of entry successfully deleted.
     """
-    
+# unit_deletion = input("Enter the number of unit you want to vacate: ")
     while unit_deletion.isalpha() or unit_deletion.lower() == 'q':
         if unit_deletion.lower() == 'q':
             return
@@ -126,37 +126,48 @@ def delete_unit_resident(unit_residents, unit_deletion):
         return
 
 
-def sum_residents_floor(residents, floor):
+def sum_residents_floor(unit_residents, floor):
     """
-    Takes the number of residents per household in the same floor and add them up.
-    (parameters) residents: (CHECK, CHECK), floor: level G, 1) SHOULD I INCLUDE MORE LEVELS????????
-    Return: Total of residents living in the same floor.
+    Takes the number of residents per household in the same floor and adds them up.
+    (parameters) unit_residents: list of dictionaries containing resident information.
+                floor: string representing the floor level for which the residents will be counted.
+    Return: Total number of residents living on the same floor.
     """
-    try:
-        floor_residents = 0
+    floor_residents = 0
+    
+    for entry in unit_residents:
+        unit = entry["unit"]
+        if (floor == "G" and unit.startswith("G")) or unit.startswith(floor):
+            floor_residents += entry["num_resid"]
+    
+    return floor_residents
 
-        # Iterate through unit numbers a sum residents in the same level
-        for unit in unit_residents:
-            if unit["unit"].starstwith(str(floor)):
-                floor_residents += unit["num_resid"]
-                print(
-                    f"Number of residents in the {floor} is {floor_residents}")
-    except ValueError as e:
-        print(f"Incorrect/inexistent floor number. Enter a valid floor number")
-    except Exception as e:
-        print(f"An unexpected error has occurred: {e}")
+while True:
+    floor = input("Enter floor level to calculate the registered residents (G, 1, 2, 3, 4) or 'q' to quit: ").upper()
+    
+    if floor == 'Q':
+        break
+    
+    if floor not in floors:
+        print("Invalid entry. Please enter a valid floor level (G, 1, 2, 3, 4) or press 'q' to quit.")
+        continue
+    
+    total_residents = sum_residents_floor(unit_residents, floor)
+    print(f"Number of registered residents on floor {floor}: {total_residents}")
 
 
-def total_residents(residents):
+def total_residents_building(unit_residents):
     """
-    Sum the total of number of residents currently living in the building.
-    (parameter) residents: (CHECK, CHECK)
-    Return: Total number of people living in the building.
+    Calculates the total number of residents in the building.
+    (parameters) unit_residents: list of dictionaries containing resident information.
+    Return: Total number of residents in the building.
     """
-    try:
-        total_residents = 0
+    total_residents = 0
+    
+    for unit in unit_residents:
+        total_residents += unit["num_resid"]
+    
+    return total_residents
 
-        for num_resid in unit_residents:
-            total_residents += num_resid["num_resid"]
-            print(
-                f"Total number of people living in the building: {total_residents}")
+total_residents = total_residents_building(unit_residents)
+print(f"Current registered residents in the building: {total_residents}")
