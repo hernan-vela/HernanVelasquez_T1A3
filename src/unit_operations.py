@@ -10,10 +10,10 @@ def display_residents(unit_residents):
     # Display nicely information of all residents in the building
     for person in unit_residents:
         print(
-            f"Unit {person['unit']}: {person['first_name']} {person['last_name']}, Status: {person['resid_type']}, Registered residents: {person['num_resid']}")
+            f"\nUnit {person['unit']}: {person['first_name']} {person['last_name']}, Status: {person['resid_type']}, Registered residents: {person['num_resid']}")
         
 
-def display_unit_info(unit_residents):
+def display_unit_info(unit_residents, building_units):
     """
     Fetches and displays information of a specific unit number upon user request.
     (parameters) unit_residents: list of residents info from JSON file.
@@ -42,34 +42,30 @@ def display_unit_info(unit_residents):
             print(f"Oops! Nothing found for unit {unit}")
 
 
-def add_new_resident(unit_residents):
+def add_new_resident(unit_residents, building_units):
     """
     Allows user to add new resident information and stores info in a JSON file.
     (parameters) unit_residents: list of residents registered as owner/tenat of every unit, from JSON file.
     Return: message of succesful addition.
     """
 
-    # Iteration to ensure that unit is empty and it can take a new resident
+   # Iteration to ensure that unit is empty and it can take a new resident
     while True:
-        unit = input("Unit of new resident: ")
+        unit = input("Unit of new resident: ").upper()
 
         # takes user out of the programme
-        if unit == 'q':
+        if unit == 'Q':
             return
 
         # Error handling in case the user wants to overwrite an entry
         if any(non_vacant_unit["unit"] == unit for non_vacant_unit in unit_residents):
-            print(
-                "This unit is not vacant. Not possible to store information. Returning to main menu.")
+            print("\nThis unit is not vacant. Not possible to store information. Returning to main menu.")
             return
 
-        # If user inputs an non-existent unit (eg. 3,1416) prompts the user to try again
+        # If user inputs a non-existent unit (e.g., 3,1416) prompts the user to try again
         if unit not in building_units:
             print("Unit non-existent. Try again or press 'q' to return to the main menu.")
-            if unit == 'q':
-                return
-            else:
-                continue
+            continue
         else:
             break
 
@@ -176,7 +172,7 @@ def sum_residents_floor(unit_residents):
 
     # Iteration to validate if floor level exist
     while True:
-        floor = input("Enter floor level to calculate the registered residents (G, 1, 2, 3, 4) or 'q' to quit: ").upper()
+        floor = input("\nEnter floor level to calculate the registered residents (G, 1, 2, 3, 4) or 'q' to quit: ").upper()
         
         # Conditional allows user to escape the programme
         if floor == 'Q':
@@ -204,7 +200,7 @@ def total_residents_building(unit_residents):
     (parameters) unit_residents: list of dictionaries containing resident information.
     Return: Total number of residents in the building.
     """
-    
+
     # Initialize count of residents
     total_residents = 0
     
@@ -212,5 +208,5 @@ def total_residents_building(unit_residents):
     for unit in unit_residents:
         total_residents += unit["num_resid"]
     # Display Total of registered residents in the building    
-    print(f"Current registered residents in the building: {total_residents}")
+    print(f"\nCurrent registered residents in the building: {total_residents}")
 

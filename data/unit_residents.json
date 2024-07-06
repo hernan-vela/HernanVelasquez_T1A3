@@ -1,17 +1,10 @@
 [
     {
-        "unit": "G01",
-        "first_name": "Josh",
-        "last_name": "Flanagan",
-        "resid_type": "Owner",
-        "num_resid": 4
-    },
-    {
         "unit": "G02",
         "first_name": "Edouard",
         "last_name": "Baxter",
         "resid_type": "Owner",
-        "num_resid": 3  
+        "num_resid": 3
     },
     {
         "unit": "G04",
@@ -21,7 +14,14 @@
         "num_resid": 1
     },
     {
-        "unit":"101",
+        "unit": "G03",
+        "first_name": "Lu",
+        "last_name": "Lo",
+        "resid_type": "Owner",
+        "num_resid": 2
+    },
+    {
+        "unit": "101",
         "first_name": "Vittoria",
         "last_name": "Vetra",
         "resid_type": "Owner",

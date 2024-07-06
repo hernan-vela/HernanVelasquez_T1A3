@@ -37,7 +37,7 @@ def save_residents(file_path, unit_residents):
         # Opens and writes in the unit_residents file to add new entries
         with open(file_path, 'w') as file:
             json.dump(unit_residents, file, indent=4)    
-        print(f"A new resident has been added to {file_path}.")
+        print(f"Your changes have been saved {file_path}.")
     
     # Manages error if user cannot add information
     except PermissionError:

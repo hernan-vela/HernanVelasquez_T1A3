@@ -12,7 +12,7 @@ def bodyCorp_unit_balance(unit_body_corp, building_units):
     # Iteration to match user input of unit number to its respective body corporate balance
     while True:
         unit = input(
-            "Enter unit to see the current Body Corporate balance or 'q' to quit: ").upper()
+            "\nEnter unit to see the current Body Corporate balance or 'q' to quit: ").upper()
 
         # Allows user to escape the loop typing 'Q' or 'q'
         if unit == 'Q':
@@ -20,7 +20,7 @@ def bodyCorp_unit_balance(unit_body_corp, building_units):
 
         # Check existence unit number in the building
         if unit not in building_units:
-            print("Invalid entry. Please enter a valid unit number or press 'q' to quit.")
+            print("\nInvalid entry. Please enter a valid unit number or press 'q' to quit.")
             continue
 
         # Finds and stores as 'balance' the 'Body Corporate balance' correspondent to unit number
@@ -36,7 +36,7 @@ def bodyCorp_unit_balance(unit_body_corp, building_units):
             print(
                 f"\nDate: {current_datetime}\nUnit: {unit}\nBC balance: {balance}\n")
         else:
-            print(f"No balance information found for unit {unit}.")
+            print(f"\nNo balance information found for unit {unit}.")
 
 
 def global_balance(unit_body_corp):
@@ -56,4 +56,4 @@ def global_balance(unit_body_corp):
 
     # Display the total Body Corporate balance
     print(
-        f"Year to Date, the global Body Corporate balance is: ${total_BC_balance}")
+        f"\nYear to Date, the global Body Corporate balance is: ${total_BC_balance}")

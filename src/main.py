@@ -47,23 +47,24 @@ def main():
         print("7. Body Corporate balance per unit")   
         print("8. Global Body Corporate balance")
         print("9. Save changes and Exit")
+        print("10. Exit (no save)")
 
         choice = input("Choose an option: ")
 
         if choice == '1':
             display_residents(unit_residents) # REVIEW ARGUMENT
         elif choice == '2':
-            display_unit_info(unit_residents) # REVIEW ARGUMENT
+            display_unit_info(unit_residents, building_units)
         elif choice == '3':
-            add_new_resident(unit_residents) # REVIEW ARGUMENT    
+            add_new_resident(unit_residents, building_units)     
         elif choice == '4':
-            delete_unit_resident(unit_residents) # REVIEW ARGUMENT
+            delete_unit_resident(unit_residents) 
         elif choice == '5':
-            sum_residents_floor(unit_residents) # REVIEW ARGUMENT
+            sum_residents_floor(unit_residents) 
         elif choice == '6':
-            total_residents_building(unit_residents) # REVIEW ARGUMENT
+            total_residents_building(unit_residents) 
         elif choice == '7':
-            bodyCorp_unit_balance(unit_body_corp) # REVIEW ARGUMENT
+            bodyCorp_unit_balance(unit_body_corp, building_units) # REVIEW ARGUMENT
         elif choice == '8':
             global_balance(unit_body_corp)
         elif choice == '9':
@@ -72,6 +73,10 @@ def main():
                 break
             except Exception as e:
                 print(f"Error associating new info to a unit: {e}")
+        elif choice == '10':
+            print("-------------------")
+            print("Exiting (unsaved).   Have a nice day!")
+            return
         else:
             print("Not an option. Try again.")
 
