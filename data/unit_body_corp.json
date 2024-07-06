@@ -1,15 +1,15 @@
 [
     {
         "Unit": "G01",
-        "Body Corporate balance": 1000
+        "Body Corporate balance": 2000
     },
     {
         "Unit": "G02",
-        "Body Corporate balance": 1000
+        "Body Corporate balance": 1500
     },
     {
         "Unit": "G03",
-        "Body Corporate balance": 0
+        "Body Corporate balance": 2000
     },
     {
         "Unit": "G04",
@@ -21,14 +21,46 @@
     },
     {
         "Unit": "102",
-        "Body Corporate balance": 0
+        "Body Corporate balance": 1500
     },
     {
         "Unit": "103",
-        "Body Corporate balance": 1000
+        "Body Corporate balance": 2500
     },
     {
         "Unit": "104",
-        "Body Corporate balance": 0
+        "Body Corporate balance": 2000
+    },
+    {
+        "Unit": "201",
+        "Body Corporate balance": 5000
+    },
+    {
+        "Unit": "202",
+        "Body Corporate balance": 1000
+    },
+    {
+        "Unit": "203",
+        "Body Corporate balance": 2500
+    },
+    {
+        "Unit": "204",
+        "Body Corporate balance": 2000
+    },
+    {
+        "Unit": "301",
+        "Body Corporate balance": 2000
+    },
+    {
+        "Unit": "302",
+        "Body Corporate balance": 4000
+    },
+    {
+        "Unit": "303",
+        "Body Corporate balance": 10200
+    },
+    {
+        "Unit": "304",
+        "Body Corporate balance": 10500
     }
 ]

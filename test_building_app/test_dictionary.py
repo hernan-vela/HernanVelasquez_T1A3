@@ -1,4 +1,6 @@
 import os
+from datetime import datetime
+import json
 
 unit_residents = [
     {
@@ -31,27 +33,117 @@ unit_residents = [
     }
 ]
 
+unit_body_corp = [
+    {
+        "Unit": "G01",
+        "Body Corporate balance": 2000
+    },
+    {
+        "Unit": "G02",
+        "Body Corporate balance": 1500
+    },
+    {
+        "Unit": "G03",
+        "Body Corporate balance": 2000
+    },
+    {
+        "Unit": "G04",
+        "Body Corporate balance": 1000
+    },
+    {
+        "Unit": "101",
+        "Body Corporate balance": 1000
+    },
+    {
+        "Unit": "102",
+        "Body Corporate balance": 1500
+    },
+    {
+        "Unit": "103",
+        "Body Corporate balance": 2500
+    },
+    {
+        "Unit": "104",
+        "Body Corporate balance": 2000
+    },
+    {
+        "Unit": "201",
+        "Body Corporate balance": 5000
+    },
+    {
+        "Unit": "202",
+        "Body Corporate balance": 1000
+    },
+    {
+        "Unit": "203",
+        "Body Corporate balance": 2500
+    },
+    {
+        "Unit": "204",
+        "Body Corporate balance": 2000
+    },
+    {
+        "Unit": "301",
+        "Body Corporate balance": 2000
+    },
+    {
+        "Unit": "302",
+        "Body Corporate balance": 4000
+    },
+    {
+        "Unit": "303",
+        "Body Corporate balance": 10200
+    },
+    {
+        "Unit": "304",
+        "Body Corporate balance": 10500
+    }
+]
+
 building_units = ["G01", "G02", "G03", "G04", "101", "102", "103", "104", "201",
                   "202", "203", "204", "301", "302", "303", "304", "401", "402", "403", "404"]
 
 
 floors = ["G", "1", "2", "3", "4"]
 
+# unit = input("Enter the unit number to know its BC balance: ")
 
-def total_residents_building(unit_residents):
+def display_unit_info(unit_residents):
     """
-    Calculates the total number of residents in the building.
-    (parameters) unit_residents: list of dictionaries containing resident information.
-    Return: Total number of residents in the building.
+    Upon user request, fetch information of a specific unit number, from a JSON file.
+    (parameters) residents: residents info from JSON file.
+        unit_num: input from user in the range of apartments in the building.
+    Return: Unit number, full name of main resident, type of resident and number of people in the household.
     """
-    total_residents = 0
-    
+    unit_num = input("Enter the unit number: ").upper()
     for unit in unit_residents:
-        total_residents += unit["num_resid"]
-    
-    return total_residents
+        if unit["unit"] == unit_num:
+            print(
+                f"\nUnit: {unit['unit']}\nResident: {unit['first_name']} {unit['last_name']}\nStatus: {unit['resid_type']}\nRegistered residents : {unit['num_resid']}\n")
+            
+display_unit_info(unit_residents)
 
-total_residents = total_residents_building(unit_residents)
-print(f"Current registered residents in the building: {total_residents}")
+for entry in unit_body_corp:
+        if entry["Unit"] == unit:
+            return entry["Body Corporate balance"]
+    return None
 
 
+while True:
+    unit = input(
+        "Enter unit to see the current Body Corporate balance or 'q' to quit: ").upper()
+
+    if unit == 'Q':
+        break
+
+    if unit not in building_units:
+        print("Invalid entry. Please enter a valid unit number or press 'q' to quit.")
+        continue
+
+    balance = bodyCorp_unit_balance(unit_body_corp, unit)
+    if balance is not None:
+        current_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        print(
+            f"\nDate: {current_datetime}\nUnit: {unit}\nBC balance: {balance}\n")
+    else:
+        print(f"No balance information found for unit {unit}.")
