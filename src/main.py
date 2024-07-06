@@ -1,7 +1,6 @@
 from file_operations import load_unit_residents, save_residents, load_unit_body_corp, load_building_units, load_floors
 from unit_operations import display_residents, display_unit_info, add_new_resident, delete_unit_resident, sum_residents_floor, total_residents_building
 from body_corp_operations import bodyCorp_unit_balance, global_balance
-from datetime import datetime
 import json
 
 main_residents = '../data/unit_residents.json'
@@ -11,9 +10,9 @@ floor_levels = '../data/floors.json'
 
 def main():
     """
-    Main functions that compiles packages and modules to display 
-    ...
-    ...
+    Upon calling numbers with their matching description, the user interacts with the Building Management Application
+    from the Terminal. // Allows user to fetch information of residents, historical payments, add new residents, delete
+    main residents information and save changes.
     """
     unit_residents = load_unit_residents(main_residents)
     unit_body_corp = load_unit_body_corp(bc_payments)

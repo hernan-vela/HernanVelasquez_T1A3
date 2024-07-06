@@ -1,4 +1,3 @@
-import os
 from datetime import datetime
 import json
 
@@ -105,34 +104,3 @@ building_units = ["G01", "G02", "G03", "G04", "101", "102", "103", "104", "201",
 
 
 floors = ["G", "1", "2", "3", "4"]
-
-
-def add_new_resident(unit_residents, building_units):
-    """
-    Allows user to add new resident information and stores info in a JSON file.
-    (parameters) unit_residents: list of residents registered as owner/tenat of every unit, from JSON file.
-    Return: message of successful addition.
-    """
-
-    # Iteration to ensure that unit is empty and it can take a new resident
-    while True:
-        unit = input("Unit of new resident: ").upper()
-
-        # takes user out of the programme
-        if unit == 'Q':
-            return
-
-        # Error handling in case the user wants to overwrite an entry
-        if any(non_vacant_unit["unit"] == unit for non_vacant_unit in unit_residents):
-            print("\nThis unit is not vacant. Not possible to store information. Returning to main menu.")
-            return
-
-        # If user inputs a non-existent unit (e.g., 3,1416) prompts the user to try again
-        if unit not in building_units:
-            print("Unit non-existent. Try again or press 'q' to return to the main menu.")
-            continue
-        else:
-            break
-            
-
-add_new_resident(unit_residents, building_units)
