@@ -3,20 +3,25 @@ import json
 def display_residents(unit_residents):
     """ 
     Fetch information of building residents from a JSON file.
-    (parameters) unit_residents: load the information stored in a JSON file with all owners/tenants of the building.
-    Return: List of units in the builiding with information of unit number, full name of resident, type of resident and number of people in the household.
+    (parameters) unit_residents: load the information stored in a JSON 
+    file with all owners/tenants of the building.
+    Return: List of units in the builiding with information of unit 
+    number, full name of resident, type of resident and number of 
+    people in the household.
     """
 
     # Display nicely information of all residents in the building
     for person in unit_residents:
         print(
-            f"\nUnit {person['unit']}: {person['first_name']} {person['last_name']}, Status: {person['resid_type']}, Registered residents: {person['num_resid']}")
+            f"\nUnit {person['unit']}: {person['first_name']} {person['last_name']}, 
+        Status: {person['resid_type']}, Registered residents: {person['num_resid']}")
         
 
 def display_unit_info(unit_residents, building_units):
     """
     Fetches and displays information of a specific unit number upon user request.
     (parameters) unit_residents: list of residents info from JSON file.
+                building_units: JSON file with all units in the building
     Return: Unit number, full name of main resident, type of resident and number of people in the household.
     """
     # Iteration through all occupied units in the building
@@ -39,7 +44,7 @@ def display_unit_info(unit_residents, building_units):
                     f"\nUnit: {entry['unit']}\nResident: {entry['first_name']} {entry['last_name']}\nStatus: {entry['resid_type']}\nRegistered residents: {entry['num_resid']}\n")
                 break
         else:
-            print(f"Oops! Nothing found for unit {unit}")
+            print(f"Oops! No owner/lessee information recorded for unit {unit}")
 
 
 def add_new_resident(unit_residents, building_units):
