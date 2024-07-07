@@ -1,14 +1,26 @@
+from add_delete_resid import add_new_resident, delete_unit_resident
+from body_corporate import body_corp_unit_balance, global_balance
+from total_counts import sum_residents_floor, total_residents_building
+from units import display_residents, display_unit_info
 from file_operations import load_unit_residents, save_residents, load_unit_body_corp, load_building_units, load_floors
-from unit_operations import display_residents, display_unit_info, add_new_resident, delete_unit_resident, sum_residents_floor, total_residents_building
-from body_corp_operations import bodyCorp_unit_balance, global_balance
 from datetime import datetime
+import os
+
+# Define absolute path to root directory
+base_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Use base_dir to define absolute path to JSON file
+main_residents = os.path.join(base_dir, "data", "unit_residents.json")
+bc_payments = os.path.join(base_dir, "data", "unit_body_corp.json")
+unit_numbers = os.path.join(base_dir, "data", "building_units.json")
+floor_levels = os.path.join(base_dir, "data", "floors.json")
 
 
-# Load files required to run the programme
-main_residents = '../data/unit_residents.json'
-bc_payments = '../data/unit_body_corp.json'
-unit_numbers = '../data/building_units.json'
-floor_levels = '../data/floors.json'
+# print(f"Main Residents Path: {main_residents}")
+# print(f"BC Payments Path: {bc_payments}")
+# print(f"Unit Numbers Path: {unit_numbers}")
+# print(f"Floor Levels Path: {floor_levels}")
+
 
 def main():
     """
@@ -76,7 +88,7 @@ def main():
         elif choice == '6':
             total_residents_building(unit_residents) 
         elif choice == '7':
-            bodyCorp_unit_balance(unit_body_corp, building_units) 
+            body_corp_unit_balance(unit_body_corp, building_units) 
         elif choice == '8':
             global_balance(unit_body_corp)
         elif choice == '9':

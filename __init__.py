@@ -1,1 +1,0 @@
-# File created as a precautionary measure. Nothing to place here so far

@@ -1,0 +1,2 @@
+from .sum_residents_floor import sum_residents_floor
+from .total_residents_building import total_residents_building
