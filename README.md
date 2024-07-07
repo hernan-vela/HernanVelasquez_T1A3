@@ -93,25 +93,39 @@ After iterating across all the units in the requested floor, the total is printe
 
 6. **Total residents in the building**
 
+This function simply iterates through 'unit_residents', after initializing the count as 'total_residents' equals zero, the code goes in a loop that iterates each 'unit' in 'unit_residents' and adds the number of residents to the 'total_residents'. Once all the list has been checked, the final value is printed as number of total residentes registered in the building.
+
+7. **Body Corporate balance per unit**
+
+This function starts with a validity loop and will constantly prompt the user for input until they choose to escape by pressing 'q', then the loop breaks.
+The function checks if the user's input is in 'building_units' list. If not, it prints a nice error message and prompts the user again.
+
+The function initializes the variable 'balance' to 'None', then iterates over 'unit_body_corp' list to find the "Unit" that matches with the user's input, it finds the "Body Corporate balance" and assigns the value to the 'balance', and breaks the loop.
+
+If the 'balance' is different from 'None', it prints current date and time, unit number and balance.
+
+When no balance is found, it shows a message indicating that there is not balance information for such unit.
+
+8. **Global Body Corporate Balance**
+
+A variable is initialized as 'total_bc_balance' equals zero. Then, the function iterates over each entry in the 'unit_body_corp' list, for each entry it takes the "Body Corporate balance" and adds it to the 'total_bc_balance'.
+
+After iterating over all the list entries, it prints the total Body Corporate balance.
+
+9. **Save changes and exit**
+
+This function take a path to the JSON file where the data will be stored and the 'unit_residents' list that needs to be saved.
+
+The function opens the file in write mode , writes the information that the user might have modified through the features of adding/deleting residents, and prints a confirmation of information saved.
+
+There are two Exception errors, one in case that the user does not have rights to changed information and another for any unexpected error.
+
+10. **Exit (no save)**
+
+By choosing this option the program prints a message indicating that the app will close without saving changes, and it finalises the terminal app.
 
 
-
-
-
-Develop a list of features that will be included in the application. It must include:
-
-- at least THREE features
-
-- describe each feature, providing a walkthrough of the logic of the application.
-
-
-Note: Ensure that your features above allow you to demonstrate your understanding of the following language elements and concepts:
-
-- use of variables and the concept of variable scope
-
-- loops and conditional control structures
-
-- error handling
+:
 
 
 
