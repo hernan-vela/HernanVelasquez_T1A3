@@ -70,7 +70,7 @@ def main():
         print("7. Body Corporate balance per unit")   
         print("8. Global Body Corporate balance")
         print("9. Save changes and Exit")
-        print("10. Exit (no save)")
+        print("10. Exit (no save)\n")
 
         choice = input("Choose an option: ")
         
@@ -101,7 +101,7 @@ def main():
                 print(f"Error associating new info to a unit: {e}")
         elif choice == '10':
             print("-------------------")
-            print("Exiting (unsaved).   Have a nice day!")
+            print("Exiting (unsaved).   Have a nice day!\n")
             return
         else:
             print("Not an option. Try again.")

@@ -52,14 +52,21 @@ A conditional can take the user out of the loop when pressing 'q' or 'Q'. Simult
 
 If the input is a valid unit number but already occupied, the user cannot overwrite the entry and the user is taken out the programme to the main menu; else if the input is an invalid character, the user can try again or exit the programme by pressing 'q / Q'. Finally, the validity loop restarts until is satisfied with a valid unit number, or the user escapes the programme.
 
-3.2 *First name* and *last name*: These two behave similarly. The user is asked to type a name, the program checks that is an alphabetic entry, if is an non alphabetical input, the user is prompted to try again or press 'q / Q' to exit the program. If the entry is valid, the program moves forward.
+3.2 *First name* and *last name*: These two behave similarly. The user is asked to type a name, and the program checks that is an alphabetic entry, if is a non-alphabetical input, the user is prompted to try again or press 'q / Q' to exit the program. If the entry is valid, the program moves forward.
 
-3.4 *Status* : Condition of owner or tenant is asked, and the user is adviced to answer 'yes' for owner, 'no' for tenant. A loop validates the answers taking any combination of upper or lowercase of yes/no as valid. Again, an invalid input asks the question again or invites the user to press 'q / Q' to exit the program. If the input is valid the program moves forward
+3.4 *Status* : The condition of owner or tenant is asked, and the user is advised to answer 'yes' for owner, and 'no' for tenant. A loop validates the answers taking any combination of upper or lowercase of yes/no as valid. Again, an invalid input asks the question or invites the user to press 'q / Q' to exit the program. If the input is valid the program moves forward
 
-3.5 *Number of residents* : Final key of the block. The input goes through a validity loop, with 'num_residents' valid if it is an integer > 0. Again, a conditional offers the user to type 'q / Q' to return to the main menu, else if the input < 0, the user is prompted to enter an integer > 0; else if the input = 0, a message says that at least one resident should live in. Finally, if there is another type of error, the user is offered to press 'q / Q' to escape the loop or to try again an the validity loop restarts.
+3.5 *Number of residents* : Final key of the block. The input goes through a validity loop, with 'num_residents' valid if it is an integer > 0. A conditional offers the user to type 'q / Q' to return to the main menu, else if the input < 0, the user is prompted to enter an integer > 0; else if the input = 0, a message says that at least one resident should live in. Finally, if there is another type of error, the user is offered to press 'q / Q' to escape the loop or try again an the validity loop restarts.
 
+4. **Delete main resident information**
 
+The user's input goes into a validity loop. The user is asked to enter a unit number that they want to vacate or press 'q / Q' to quit. If they press 'q / Q' the program ends and goes back to the main menu.
 
+As character validation, the program checks if is valid alphanumeric unit number. Invalid characters will return a message and the loop asks the user for an input again.
+
+If the entry is valid, a loop iterates through the database of 'unit-residents'. If there is a key 'unit' that matches the input, the entry is vacated as if the unit were vacated. End of the loop.
+
+5. **Calculate residents per floor level**
 
 
 
