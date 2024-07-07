@@ -44,21 +44,19 @@ The app requests input from the user to populate a new entry that could be store
 }
 
 ```
-The programme unfolds as follow:
+The program unfolds as follow:
 
-3.1 *Unit* : the user input enters a validty loop until is true or the user escapes it and it is returned to the main menu. First, the input is converted to upper case to cover unit numbers in G level. 
-To avoid over
+3.1 *Unit* : the user's input enters a validity loop until is true or the user escapes it and it is returned to the main menu. First, the input is converted to upper case to cover unit numbers in G level.
 
+A conditional can take the user out of the loop when pressing 'q' or 'Q'. Simultaneously the possible values are assessed, and errors nicely handled with other conditionals.
 
+If the input is a valid unit number but already occupied, the user cannot overwrite the entry and the user is taken out the programme to the main menu; else if the input is an invalid character, the user can try again or exit the programme by pressing 'q / Q'. Finally, the validity loop restarts until is satisfied with a valid unit number, or the user escapes the programme.
 
+3.2 *First name* and *last name*: These two behave similarly. The user is asked to type a name, the program checks that is an alphabetic entry, if is an non alphabetical input, the user is prompted to try again or press 'q / Q' to exit the program. If the entry is valid, the program moves forward.
 
-3.2 *First name* : 
+3.4 *Status* : Condition of owner or tenant is asked, and the user is adviced to answer 'yes' for owner, 'no' for tenant. A loop validates the answers taking any combination of upper or lowercase of yes/no as valid. Again, an invalid input asks the question again or invites the user to press 'q / Q' to exit the program. If the input is valid the program moves forward
 
-3.3 *Last Name* :
-
-3.4 *Status* :
-
-3.5 *Number of residents* :
+3.5 *Number of residents* : Final key of the block. The input goes through a validity loop, with 'num_residents' valid if it is an integer > 0. Again, a conditional offers the user to type 'q / Q' to return to the main menu, else if the input < 0, the user is prompted to enter an integer > 0; else if the input = 0, a message says that at least one resident should live in. Finally, if there is another type of error, the user is offered to press 'q / Q' to escape the loop or to try again an the validity loop restarts.
 
 
 
