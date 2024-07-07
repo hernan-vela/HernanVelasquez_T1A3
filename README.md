@@ -13,9 +13,19 @@ The code styling used for this project is PEP8, following its guidelines as expl
 
 
 
-## Main Features
+## Application layout
 
 The Building Management Application, run from the Terminal, is thought to handle the information of a building with five-floor levels (G, 1, 2, 3, 4) and four units per level. It stores information about the full name of the main resident of the unit, the status of owner / lessee, the number of residents living in such unit, and the balance of Body Corporate per unit and globally.
+
+The application uses three files with JSON extension, designed, named and stored as global resources for all the functions throughout the Building Management App. The *'unit_resident.json'* with information of owners / lessees occupying each unit, is organised as an array of dictionaries in a list. The *'body_corporate_balance.json'* , contains historical payments of the body corporate as an array of dictionaries in a list. Last, a *'building_units.json'* file, which is a list of all possible unit numbers in the building.
+
+The application is built such as the only changeable file is the *'unit_residents.json'*, from which is possible to delete entries of residents who may have left the building, or add new residents who bought or rented a unit.
+
+The modules of the *main function* (main.py) are coded in external Python files, and grouped according to their use, in packages later imported to the 'main.py' function.
+
+The 'main.py' function is designed as a match case, which allows the user to select tasks to perform with the keyboard. Then, the user follows the instructions until the requests in form of inputs, return a satisfactory output, or a way to terminate the process before finishing its task.
+
+## Main Features
 
 The features showed from the user interface are:
 
@@ -60,6 +70,9 @@ If the input is a valid unit number but already occupied, the user cannot overwr
 
 4. **Delete main resident information**
 
+Uses 'unit_resident.json' file to iterate through it. This file contains
+
+
 The user's input goes into a validity loop. The user is asked to enter a unit number that they want to vacate or press 'q / Q' to quit. If they press 'q / Q' the program ends and goes back to the main menu.
 
 As character validation, the program checks if is valid alphanumeric unit number. Invalid characters will return a message and the loop asks the user for an input again.
@@ -67,6 +80,19 @@ As character validation, the program checks if is valid alphanumeric unit number
 If the entry is valid, a loop iterates through the database of 'unit-residents'. If there is a key 'unit' that matches the input, the entry is vacated as if the unit were vacated. End of the loop.
 
 5. **Calculate residents per floor level**
+
+It starts with a validity loop that makes the code keeps asking the user for input until they decide to terminate by pressing 'q / Q'.
+
+The user is asked for an input in form of a level (G, 1, 2, 3, 4) or press 'q' to quit. The input is converted to uppercase to match the ground level. If the user enters 'q / Q', the loops breaks, program ended.
+
+To manage invalid level inputs, there is a local variable called *'floors'* such as a list that includes all the possible values for building levels. An error is printed if the input is not in *'floors'*
+
+The count of residents in the building is initialized as 'floor_residents' is zero, then the code iterates through 'unit_residents' and for all unit numbers, such as the first character of the pair value matches the valid user's input, the number of residents in that unit is added to 'floor_residents'.
+
+After iterating across all the units in the requested floor, the total is printed and displayed in the Terminal.
+
+6. **Total residents in the building**
+
 
 
 
