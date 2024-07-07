@@ -7,11 +7,7 @@
 
 ## Code Styling - PEP8
 
-The code styling used for this project is PEP8, following its guidelines as explained in Python website (2023)[^1].
-
-## 
-
-
+The code styling used for this project is PEP8, following its guidelines as explained in Python website (2023)(^1).
 
 ## Application layout
 
@@ -124,8 +120,29 @@ There are two Exception errors, one in case that the user does not have rights t
 
 By choosing this option the program prints a message indicating that the app will close without saving changes, and it finalises the terminal app.
 
+## How to Install / Run the Building Management Application
 
-:
+The application does not need to much manual installation from the user. The only requirements is to run the executable 'run.sh' from the Terminal.
+
+1. Open your Terminal application and from the folder location: 
+'../HernanVelasquezT1A3' type:
+```
+./run.sh
+```
+Press 'return'
+
+2. The 'run.sh' automatically will create a virtual environment to run all packages needed to execute the app, without interfering with your resources already installed in your local machine.
+
+3. The only requirments to run this app are 'python3' and the Python Manager Package 'pip', although the executable will install all this automatically
+
+4. Once you decide to close the application, follow the numerical prompts as "9" to save and exit or "10" to exit without saving the changes made.
+
+Automatically, the executable will deactivate the virtual environment previously installed, and you can run your local machine as you regularly do.
+
+## Brief explanation of the App operation
+
+
+
 
 
 
